@@ -6,8 +6,13 @@ def convert(hex):
     return sum([d[a.lower()] * 16 ** i if a.isalpha() else int(a) * 16 ** i for i, a in enumerate(l[::-1])])
 
 
+def convert2(hex):
+    return sum([int(a, 16)*16**i for i, a in enumerate(reversed(hex))])
+
 while True:
     num = str(raw_input('Input some hex-number: (q - quit)'))
     if num == 'q':
         break
-    print(convert(num))
+    print(convert2(num))
+
+
