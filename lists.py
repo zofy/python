@@ -1,3 +1,4 @@
+
 my_list = [1, 2, 3, 4]
 
 print(my_list, len(my_list))
@@ -55,3 +56,4 @@ print(first_col)
 sec_col = [row[1] for row in matrix]
 sec_row = [n for n in matrix[1]]
 print(sec_row)
+

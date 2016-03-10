@@ -8,4 +8,15 @@ def sum_arguments(*args):
     return output
 
 
-print(sum_arguments([1,2], [3,4]))
+def sum_arguments2(*args):
+    if not args:
+        return args
+    output = type(args[0])()
+    for x in args:
+        output += x
+    return output
+
+
+print(sum_arguments2())
+
+print(type(3.14)())
