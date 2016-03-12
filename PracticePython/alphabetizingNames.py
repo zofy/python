@@ -1,3 +1,5 @@
+import operator
+
 people = [{'first': 'Rauven', 'last': 'Lerner', 'email': 'reuven@lerner.co.il'},
           {'first': 'Barack', 'last': 'Obama', 'email': 'president@whitehouse.gov'},
           {'first': 'Vladimir', 'last': 'Putin', 'email': 'president@kremvax.ru'}]
@@ -26,6 +28,20 @@ def sort2(list):
     return '\n'.join([': '.join(p) for p in l])
 
 
+def sort3(list):
+    l = sorted([(person['last'] + ', ' + person['first'], person['email']) for person in list],
+               key=lambda person: person[0])
+    return '\n'.join([': '.join(p) for p in l])
+
+
+def getKey2(item):
+    return item['last'] + ', ' + item['first']
+
+
+def sort4(list):
+    for p in sorted(list, key=lambda person: person['last'] + ', ' + person['first']):
+        print("{last}, {first}: {email}".format(**p))
+
+
 # sort(people)
-print(sort2(people))
-# print('lbama' < 'lerner')
+sort4(people)
