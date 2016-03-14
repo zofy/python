@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def show(list):
     max = 0
     for word in list:
@@ -12,8 +15,19 @@ def show(list):
 
 
 def show2(list):
-    return sorted(list, key=lambda word: map(lambda letter: word.count(letter), set(word)))
+    return sorted(list, key=lambda word: map(lambda letter: word.count(letter), set(word)))[-1]
+
+
+def show3(list):
+    return reduce(lambda a, b: a if Counter(a).most_common()[0][1] > Counter(b).most_common()[0][1] else b, list)
+
+
+def show4(list):
+    word_counts = {word: max(Counter(word).items(), key=lambda t: t[1]) for word in list}
+    return max(word_counts, key=lambda word: word_counts[word][1])
 
 
 line = 'This isiss aa test program'
-print(show2(line.split()))
+print(show4(line.split()))
+
+
