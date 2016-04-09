@@ -1,4 +1,6 @@
 from collections import Counter
+from Crypto.Cipher import AES
+
 
 
 def show(list):
@@ -31,3 +33,15 @@ line = 'This isiss aa test program'
 print(show4(line.split()))
 
 
+def once_again(list):
+    d = {word: max(Counter(word).items(), key=lambda t: t[1]) for word in list}
+    return max(d, key=lambda word: d[word][1])
+
+# print(once_again(line.split()))
+# print(show2(line.split()))
+
+
+def cc(list):
+    return [map(lambda letter: word.count(letter), set(word)) for word in list]
+
+print(cc(line.split()))
