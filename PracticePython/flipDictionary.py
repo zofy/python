@@ -12,4 +12,8 @@ def flip2(d):
     return {t[1]: t[0] for t in d.items()}
 
 
-print(flip2(d))
+def flip3(d):
+    return {value: key for key, value in d.items()}
+
+
+print(flip(d))
