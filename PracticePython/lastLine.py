@@ -15,4 +15,19 @@ def print_last_line2():
         print line
 
 
-print_last_line2()
+#  the best solution for real cases
+def print_last_line3():
+    with open(path, 'r') as f:
+        for line in f:
+            pass
+        print line
+
+
+#  even little bit better
+def print_last_line4():
+    for line in open(path, 'r'):
+        pass
+    print line
+
+
+print_last_line4()
